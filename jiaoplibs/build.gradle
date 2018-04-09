@@ -1,0 +1,71 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api 'com.orhanobut:logger:2.1.1'
+    api('com.github.GrenderG:Toasty:1.2.8') {
+        exclude group: "com.android.support"
+    }
+    implementation('com.github.bumptech.glide:glide:4.6.1') {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    api('jp.wasabeef:glide-transformations:3.1.1') {
+        exclude group: "com.android.support"
+    }
+    api 'com.yanzhenjie:permission:2.0.0-rc3'
+    api 'com.gyf.barlibrary:barlibrary:2.3.0'
+    api 'com.github.LiangLuDev:DevShapeUtils:1.0.1'
+    api('com.zhy:base-rvadapter:3.0.3') {
+        exclude group: "com.android.support"
+    }
+    api 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    api 'com.clj.fastble:FastBleLib:2.2.4'
+    api 'com.youth.banner:banner:1.4.10'
+    api 'com.google.code.gson:gson:2.8.2'
+    api 'com.just.agentweb:agentweb:4.0.2'
+    api('com.tubb.smrv:swipemenu-recyclerview:5.4.5') {
+        exclude group: "com.android.support"
+    }
+    api 'com.github.pinguo-zhouwei:CustomPopwindow:2.1.1'
+    api 'com.android.support:recyclerview-v7:26.1.0'
+    api 'com.yanzhenjie:album:2.0.2'
+    api 'com.zhouyou:rxeasyhttp:2.0.5'
+    api files('libs/alipaySdk-20180316.jar')
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    api 'com.jpeng:JPTabBar:1.4.0'
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '26.1.0'
+            }
+        }
+    }
+}
