@@ -70,7 +70,7 @@ protected void initView() {}
 //设置布局文件
 @Override
 protected int layoutId() {
-	return 0;
+    return 0;
 }
 
 //加载WiFi网络下数据
@@ -88,7 +88,7 @@ protected void initOfflineData() {}
 //设置沉浸式状态栏背景色
 @Override
 protected int statusBarColor() {
-	return 0;
+    return 0;
 }
 ```
 
