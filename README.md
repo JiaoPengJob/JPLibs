@@ -56,5 +56,32 @@ Toasty.Config.getInstance()
     .setTextSize() 		//文本大小
     .apply();
 ```
+- **初始化RxEasyHttp网络请求**
+<br>详细配置请移步：[https://github.com/zhou-you/RxEasyHttp](https://github.com/zhou-you/RxEasyHttp)
+<br>这些配置需要根据自身需求，设置在你的Application中
+###3.继承JPBaseActivity，并重写：
+```Java
+//初始化页面布局<br>
+@Override
+protected void initView() {}
 
+@Override
+protected int layoutId() {
+	return 0;
+}
+
+@Override
+protected void initWiFiData() {}
+
+@Override
+protected void initNetData() {}
+
+@Override
+protected void initOfflineData() {}
+
+@Override
+protected int statusBarColor() {
+	return 0;
+}
+```
 
