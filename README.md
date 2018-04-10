@@ -23,25 +23,25 @@ dependencies {
 dependencies {
 	...
 	api 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    	annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }
 ```
 ###2.继承JPApplication，并初始化：
 - **初始化Logger输出日志**
 ```Java
-val formatStrategy = PrettyFormatStrategy.newBuilder()
-                .showThreadInfo(true)  //是否显示线程信息.
-                .methodCount(0)        //要显示多少种方法行.
-                .methodOffset(3)       //跳过堆栈跟踪中的一些方法调用.
-                .tag("Kotlin:")   	   //每个日志的自定义标签.
-                .build()
-        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy){
-            @Override
-            public boolean isLoggable(int priority, String tag) {
-				//是否打印日志信息
+FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .showThreadInfo(true) 	//是否显示线程信息.
+                .methodCount(0)        	//要显示多少种方法行.
+                .methodOffset(3)       	//跳过堆栈跟踪中的一些方法调用.
+                .tag("Kotlin:")        	//每个日志的自定义标签.
+                .build();
+Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy){
+	@Override
+        public boolean isLoggable(int priority, String tag) {
+		//是否打印日志信息
                 return BuildConfig.DEBUG;
-            }
-        });
+        }
+});
 ```
 - **初始化Toasty提示信息**
 ```Java
@@ -51,9 +51,9 @@ Toasty.Config.getInstance()
     .setSuccessColor() 		//Success 颜色
     .setWarningColor() 		//Warning 颜色
     .setTextColor() 		//文本颜色
-    .tintIcon() 			//是否显示图标 
+    .tintIcon() 		//是否显示图标 
     .setToastTypeface() 	//文本字体
-    .setTextSize() 			//文本大小
+    .setTextSize() 		//文本大小
     .apply();
 ```
 
