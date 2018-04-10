@@ -27,7 +27,7 @@ dependencies {
 }
 ```
 
-###2.继承JPApplication，并初始化：
+##2.继承JPApplication，并初始化：
 - **初始化Logger输出日志**
 ```Java
 FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
