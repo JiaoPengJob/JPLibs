@@ -27,7 +27,7 @@ dependencies {
 }
 ```
 
-======2.继承JPApplication，并初始化：
+###2.继承JPApplication，并初始化：
 - **初始化Logger输出日志**
 ```Java
 FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
@@ -63,24 +63,29 @@ Toasty.Config.getInstance()
 
 ###3.继承JPBaseActivity，并重写：
 ```Java
-//初始化页面布局
+//初始化页面布局<br>
 @Override
 protected void initView() {}
 
+//设置布局文件
 @Override
 protected int layoutId() {
 	return 0;
 }
 
+//加载WiFi网络下数据
 @Override
 protected void initWiFiData() {}
 
+//加载移动网络下数据
 @Override
 protected void initNetData() {}
 
+//加载离线下数据
 @Override
 protected void initOfflineData() {}
 
+//设置沉浸式状态栏背景色
 @Override
 protected int statusBarColor() {
 	return 0;
