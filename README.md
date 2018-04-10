@@ -26,6 +26,7 @@ dependencies {
     	annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }
 ```
+
 ###2.继承JPApplication，并初始化：
 - **初始化Logger输出日志**
 ```Java
@@ -59,9 +60,10 @@ Toasty.Config.getInstance()
 - **初始化RxEasyHttp网络请求**
 <br>详细配置请移步：[https://github.com/zhou-you/RxEasyHttp](https://github.com/zhou-you/RxEasyHttp)
 <br>这些配置需要根据自身需求，设置在你的Application中
+
 ###3.继承JPBaseActivity，并重写：
 ```Java
-//初始化页面布局<br>
+//初始化页面布局
 @Override
 protected void initView() {}
 
