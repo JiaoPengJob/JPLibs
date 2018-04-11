@@ -56,3 +56,11 @@
 -keep class com.alipay.tscenter.** { *; }
 -keep class com.ta.utdid2.** { *;}
 -keep class com.ut.device.** { *;}
+-keep class com.gyf.barlibrary.* {*;}
+-keep class com.youth.banner.** {
+    *;
+ }
+ -keep class com.just.agentweb.** {
+     *;
+ }
+ -dontwarn com.just.agentweb.**

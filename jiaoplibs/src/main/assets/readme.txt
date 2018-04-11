@@ -1,14 +1,25 @@
-需要设置：
-//设置Log输出日志
-        val formatStrategy = PrettyFormatStrategy.newBuilder()
-                .showThreadInfo(true)  // (Optional) 是否显示线程信息. Default true
-                .methodCount(0)         // (Optional) 要显示多少种方法行. Default 2
-                .methodOffset(3)        // (Optional) 跳过堆栈跟踪中的一些方法调用. Default 5
-                .tag("Kotlin:")   // (Optional) 每个日志的自定义标签. Default PRETTY_LOGGER
-                .build()
-        Logger.addLogAdapter(AndroidLogAdapter(formatStrategy))
+1.Log
+orhanobut/logger
+https://github.com/orhanobut/logger
+配置：
+FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+        .showThreadInfo(true)    //是否显示线程信息.
+        .methodCount(0)            //要显示多少种方法行.
+        .methodOffset(3)        //跳过堆栈跟踪中的一些方法调用.
+        .tag("MyApp:")            //每个日志的自定义标签.
+        .build();
+Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy) {
+    @Override
+    public boolean isLoggable(int priority, String tag) {
+        //是否打印日志信息
+        return BuildConfig.DEBUG;
+    }
+});
 
-//设置Toasty
+2.Toast
+GrenderG/Toasty
+https://github.com/GrenderG/Toasty
+配置：
 Toasty.Config.getInstance()
     .setErrorColor(@ColorInt int errorColor) // optional
     .setInfoColor(@ColorInt int infoColor) // optional
@@ -18,79 +29,60 @@ Toasty.Config.getInstance()
     .tintIcon(boolean tintIcon) // optional (apply textColor also to the icon)
     .setToastTypeface(@NonNull Typeface typeface) // optional
     .setTextSize(int sizeInSp) // optional
-    .apply(); // required
+    .apply();
 
-//设置Shape或Selector的xml的工具，摒弃xml传统配置模式，减少文件数量，便于多人员开发
-具体使用见：https://github.com/LiangLuDev/DevShapeUtils
+3.权限
+yanzhenjie/AndPermission
+http://www.yanzhenjie.com/AndPermission/cn/
 
-//在开发蓝牙时，可以使用FastBle
+4.沉浸式状态栏和沉浸式导航栏管理
+gyf-dev/ImmersionBar
+https://github.com/gyf-dev/ImmersionBar
+
+5.设置Shape样式、Selector触摸反馈效果
+LiangLuDev/DevShapeUtils
+https://github.com/LiangLuDev/DevShapeUtils
+
+6.Adapter
+hongyangAndroid/baseAdapter
+https://github.com/hongyangAndroid/baseAdapter
+
+7.蓝牙快速开发框架
+Jasonchenlijian/FastBle
 https://github.com/Jasonchenlijian/FastBle
 
-//使用banner时，youth的Banner
+8.图片轮播控件
+youth5201314/banner
 https://github.com/youth5201314/banner
 
-//底部菜单栏可以考虑使用FlycoTabLayout
-https://github.com/H07000223/FlycoTabLayout
+9.Json解析
+google/gson
+https://github.com/google/gson
 
-//加载WebView时可以使用AgentWeb
+10.WebView
+Justson/AgentWeb
 https://github.com/Justson/AgentWeb
 
-//列表中需要滑动菜单时，使用SwipeMenu
+11.滑动菜单
+TUBB/SwipeMenu
 https://github.com/TUBB/SwipeMenu
 
-//需要弹出框时，可以使用CustomPopwindow
+12.PopupWindow
+pinguo-zhouwei/CustomPopwindow
 https://github.com/pinguo-zhouwei/CustomPopwindow
 
-//相册使用 Album
+13.相册
+yanzhenjie/Album
 https://github.com/yanzhenjie/Album/blob/master/README-CN.md
 
-//网络访问可以使用RxEasyHttp
+14.网络请求
+zhou-you/RxEasyHttp
 https://github.com/zhou-you/RxEasyHttp
 
-//支付宝支付
-1：修改Manifest
-在AndroidManifest.xml中添加声明：
-<activity
-    android:name="com.alipay.sdk.app.H5PayActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:exported="false"
-    android:screenOrientation="behind"
-    android:windowSoftInputMode="adjustResize|stateHidden" >
-</activity>
- <activity
-    android:name="com.alipay.sdk.app.H5AuthActivity"
-    android:configChanges="orientation|keyboardHidden|navigation"
-    android:exported="false"
-    android:screenOrientation="behind"
-    android:windowSoftInputMode="adjustResize|stateHidden" >
-</activity>:
-2：权限声明
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-3：调用
-new JPAlipay(this, param, new JPAlipay.AlipayResultCallBack() {
-            @Override
-            public void onSuccess() {
-                Logger.e("支付成功");
-            }
+15.底部菜单栏
+peng8350/JPTabBar
+https://github.com/peng8350/JPTabBar
 
-            @Override
-            public void onDealing() {
-                Logger.e("支付中...");
-            }
-
-            @Override
-            public void onError(int error_code) {
-                Logger.e("支付失败");
-            }
-
-            @Override
-            public void onCancel() {
-                Logger.e("支付取消");
-            }
-        }).goPay();
-
-//微信支付
+16.图片压缩
+Curzibn/Luban
+https://github.com/Curzibn/Luban

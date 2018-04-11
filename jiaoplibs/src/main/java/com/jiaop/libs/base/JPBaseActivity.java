@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.jiaop.libs.broadcast.JPNetworkChangeBroadcast;
+import com.jiaop.libs.entities.NetworkChange;
 import com.jiaop.libs.interfaces.JPNetworkChangeInterface;
 import com.jiaop.libs.utils.JPActivityUtil;
 
@@ -21,6 +22,8 @@ import butterknife.ButterKnife;
 public abstract class JPBaseActivity extends AppCompatActivity implements JPNetworkChangeInterface {
 
     private ImmersionBar mImmersionBar;
+
+    private NetworkChange networkChange;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,6 +47,8 @@ public abstract class JPBaseActivity extends AppCompatActivity implements JPNetw
                 .init();
         //Activity栈管理
         JPActivityUtil.getInstance().addActivity(this);
+        //初始化网络状态实体类
+        networkChange = new NetworkChange();
         //初始化页面
         initView();
     }
@@ -65,13 +70,15 @@ public abstract class JPBaseActivity extends AppCompatActivity implements JPNetw
         //0：没有网络 1：WIFI网络 2：net网络
         switch (status) {
             case 0:
-//                Toasty.info(JPBaseActivity.this, "当前处于无网络状态，请联网重试！", Toast.LENGTH_SHORT, true).show();
+                networkChange.setState(0);
                 initOfflineData();
                 break;
             case 1:
+                networkChange.setState(1);
                 initWiFiData();
                 break;
             case 2:
+                networkChange.setState(2);
                 initNetData();
                 break;
         }
@@ -107,4 +114,7 @@ public abstract class JPBaseActivity extends AppCompatActivity implements JPNetw
             mImmersionBar.destroy();
     }
 
+    public NetworkChange getNetworkChange() {
+        return networkChange;
+    }
 }

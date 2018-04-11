@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AndPermissionActivity">
+
+    <Button
+        android:id="@+id/btPermissionOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请求单个权限" />
+
+    <Button
+        android:id="@+id/btPermissionOneGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请求单个权限组" />
+
+    <Button
+        android:id="@+id/btPermissionMany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请求多个权限" />
+
+    <Button
+        android:id="@+id/btPermissionManyGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请求多个权限组" />
+
+</LinearLayout>

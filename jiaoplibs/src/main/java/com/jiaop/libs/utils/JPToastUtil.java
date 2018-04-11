@@ -9,7 +9,7 @@ import es.dmoral.toasty.Toasty;
 /**
  * Created by jiaop
  * Toast帮助类
- * 在Application中进行相关配置：
+ * 根据需求，在Application中进行相关配置：
  * Toasty.Config.getInstance()
  * .setErrorColor(@ColorInt int errorColor)
  * .setInfoColor(@ColorInt int infoColor)
