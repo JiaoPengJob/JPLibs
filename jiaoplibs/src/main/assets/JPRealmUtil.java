@@ -17,14 +17,15 @@ import io.realm.RealmResults;
  * }
  * 其次，在Application中配置：
  * Realm.init(this);
- * byte[] key = new byte[64];
- * new SecureRandom().nextBytes(key);
+ * 注意：不能在Application中设置key，否则会访问不到文件，因为每次都会生成一个新的key
+ * //byte[] key = new byte[64];
+ * //new SecureRandom().nextBytes(key);
  * RealmConfiguration config = new RealmConfiguration.Builder()
  * //文件名
  * .name("realm.realm")
  * //版本号
  * .schemaVersion(1)
- * .encryptionKey(key)
+ * //.encryptionKey(key)
  * //声明版本冲突时自动删除原数据库
  * .deleteRealmIfMigrationNeeded()
  * .build();

@@ -2,9 +2,13 @@ package com.jiaop.libs.utils;
 
 import android.graphics.Bitmap;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.StrikethroughSpan;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by JiaoP
@@ -107,6 +111,22 @@ public class JPViewUtil {
             comBitmap.setDrawingCacheBackgroundColor(color);
         }
         return bitmap;
+    }
+
+    /**
+     * 设置TextView中间线样式
+     *
+     * @param textView  需要设置的TextView
+     * @param text      显示的文本
+     * @param start     开始的下标
+     * @param end       结束的下标
+     * @param spannable 需要中间线的样式
+     */
+    public static void showMiddleLine(TextView textView, String text, int start, int end, int spannable) {
+        Spannable spanStrikethrough = new SpannableString(text);
+        StrikethroughSpan stSpan = new StrikethroughSpan();
+        spanStrikethrough.setSpan(stSpan, start, end, spannable);
+        textView.setText(spanStrikethrough);
     }
 
 }

@@ -1,35 +1,10 @@
 1.Log
 orhanobut/logger
 https://github.com/orhanobut/logger
-配置：
-FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
-        .showThreadInfo(true)    //是否显示线程信息.
-        .methodCount(0)            //要显示多少种方法行.
-        .methodOffset(3)        //跳过堆栈跟踪中的一些方法调用.
-        .tag("MyApp:")            //每个日志的自定义标签.
-        .build();
-Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy) {
-    @Override
-    public boolean isLoggable(int priority, String tag) {
-        //是否打印日志信息
-        return BuildConfig.DEBUG;
-    }
-});
 
 2.Toast
 GrenderG/Toasty
 https://github.com/GrenderG/Toasty
-配置：
-Toasty.Config.getInstance()
-    .setErrorColor(@ColorInt int errorColor) // optional
-    .setInfoColor(@ColorInt int infoColor) // optional
-    .setSuccessColor(@ColorInt int successColor) // optional
-    .setWarningColor(@ColorInt int warningColor) // optional
-    .setTextColor(@ColorInt int textColor) // optional
-    .tintIcon(boolean tintIcon) // optional (apply textColor also to the icon)
-    .setToastTypeface(@NonNull Typeface typeface) // optional
-    .setTextSize(int sizeInSp) // optional
-    .apply();
 
 3.权限
 yanzhenjie/AndPermission
@@ -95,3 +70,8 @@ https://www.jianshu.com/p/37af717761cc
 18.MVP
 https://blog.csdn.net/c10WTiybQ1Ye3/article/details/79787116
 
+19：灵活Excel视图，首行首列不动
+https://github.com/Kelin-Hong/ScrollablePanel
+
+20：实现RecyclerView分组顶部悬浮效果
+https://github.com/Gavin-ZYX/StickyDecoration
