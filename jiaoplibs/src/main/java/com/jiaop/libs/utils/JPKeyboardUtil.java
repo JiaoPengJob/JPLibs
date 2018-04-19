@@ -60,4 +60,19 @@ public class JPKeyboardUtil {
         }
     }
 
+    /**
+     * 判断软键盘是否弹出
+     */
+    public static boolean isShowKeyboard(Context context, View view) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(context.INPUT_METHOD_SERVICE);
+        if (imm.hideSoftInputFromWindow(view.getWindowToken(), 0)) {
+            //软键盘已弹出
+            imm.showSoftInput(view, 0);
+            return true;
+        } else {
+            //软键盘未弹出
+            return false;
+        }
+    }
+
 }
