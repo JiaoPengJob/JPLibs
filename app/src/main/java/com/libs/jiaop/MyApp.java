@@ -1,6 +1,7 @@
 package com.libs.jiaop;
 
 import com.jiaop.libs.base.JPApplication;
+import com.jiaop.libs.utils.JPSharedPreUtil;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -25,6 +26,8 @@ public class MyApp extends JPApplication {
                 return BuildConfig.DEBUG;
             }
         });
+
+        JPSharedPreUtil.init(this, "test_sp_data");
 
     }
 }

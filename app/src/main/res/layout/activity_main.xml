@@ -13,4 +13,22 @@
         android:layout_height="wrap_content"
         android:text="LOG" />
 
+    <Button
+        android:id="@+id/btP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Put" />
+
+    <Button
+        android:id="@+id/btR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read" />
+
+    <Button
+        android:id="@+id/btU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update" />
+
 </LinearLayout>

@@ -105,7 +105,7 @@ public class JPGsonUtil {
      * @param <T>
      * @return
      */
-    public static <T> T object2Json(Object response, Class<T> clazz) {
+    public static <T> T json2Object(Object response, Class<T> clazz) {
         try {
             return gson.fromJson(gson.toJson(response), clazz);
         } catch (Exception e) {

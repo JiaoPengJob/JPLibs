@@ -17,7 +17,8 @@ public class JPIdCardUtil {
     private static int DATE_ERROR = 4;
     private static int CHECK_BIT_ERROR = 5;
 
-    private String[] errMsg = new String[]{"身份证完全正确！",
+    private String[] errMsg = new String[]{
+            "身份证完全正确！",
             "身份证为空！",
             "身份证长度不正确！",
             "身份证有非法字符！",

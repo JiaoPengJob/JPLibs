@@ -48,18 +48,13 @@ dependencies {
     }
     api 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    api 'com.clj.fastble:FastBleLib:2.2.4'
     api 'com.youth.banner:banner:1.4.10'
     api 'com.google.code.gson:gson:2.8.2'
-    api 'com.just.agentweb:agentweb:4.0.2'
-    api 'com.just.agentweb:download:4.0.2'
-    api 'com.just.agentweb:filechooser:4.0.2'
     api('com.tubb.smrv:swipemenu-recyclerview:5.4.5') {
         exclude group: "com.android.support"
     }
     api 'com.github.pinguo-zhouwei:CustomPopwindow:2.1.1'
     api 'com.android.support:recyclerview-v7:26.1.0'
-    api 'com.yanzhenjie:album:2.0.2'
     api 'com.zhouyou:rxeasyhttp:2.0.5'
     api files('libs/alipaySdk-20180316.jar')
     api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'

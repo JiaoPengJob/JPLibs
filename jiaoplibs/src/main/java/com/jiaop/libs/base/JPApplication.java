@@ -4,13 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
-import com.jiaop.libs.loaders.JPGlideAlbumLoader;
 import com.luliang.shapeutils.DevShapeUtils;
-import com.yanzhenjie.album.Album;
-import com.yanzhenjie.album.AlbumConfig;
 import com.zhouyou.http.EasyHttp;
-
-import java.util.Locale;
 
 /**
  * Created by jiaop
@@ -26,13 +21,6 @@ public abstract class JPApplication extends Application {
         DevShapeUtils.init(this);
         //初始化RxEasyHttp
         EasyHttp.init(this);
-        //初始化Album相册
-        Album.initialize(
-                AlbumConfig.newBuilder(this)
-                        .setAlbumLoader(new JPGlideAlbumLoader())
-                        .setLocale(Locale.CHINA)
-                        .build()
-        );
     }
 
     @Override

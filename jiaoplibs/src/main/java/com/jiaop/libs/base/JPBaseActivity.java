@@ -25,6 +25,8 @@ public abstract class JPBaseActivity extends AppCompatActivity implements JPNetw
 
     private NetworkChange networkChange;
 
+    private JPNetworkChangeBroadcast netBroadcastReceiver;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,7 @@ public abstract class JPBaseActivity extends AppCompatActivity implements JPNetw
         //加载ButterKnife--View注解
         ButterKnife.bind(this);
         // 注册Broadcast Receiver
-        JPNetworkChangeBroadcast netBroadcastReceiver = new JPNetworkChangeBroadcast(JPBaseActivity.this);
+        netBroadcastReceiver = new JPNetworkChangeBroadcast(JPBaseActivity.this);
         IntentFilter filter = new IntentFilter();
         filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(netBroadcastReceiver, filter);
@@ -112,6 +114,7 @@ public abstract class JPBaseActivity extends AppCompatActivity implements JPNetw
         super.onDestroy();
         if (mImmersionBar != null)
             mImmersionBar.destroy();
+        unregisterReceiver(netBroadcastReceiver);
     }
 
     public NetworkChange getNetworkChange() {
