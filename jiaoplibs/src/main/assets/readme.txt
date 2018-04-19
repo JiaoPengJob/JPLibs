@@ -86,3 +86,12 @@ https://github.com/peng8350/JPTabBar
 16.图片压缩
 Curzibn/Luban
 https://github.com/Curzibn/Luban
+
+17.数据库
+realm/realm-java
+https://github.com/realm/realm-java
+https://www.jianshu.com/p/37af717761cc
+
+18.MVP
+https://blog.csdn.net/c10WTiybQ1Ye3/article/details/79787116
+
