@@ -63,6 +63,7 @@ dependencies {
         exclude group: "com.android.support"
     }
     api 'org.greenrobot:eventbus:3.1.1'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-5'
 }
 
 configurations.all {

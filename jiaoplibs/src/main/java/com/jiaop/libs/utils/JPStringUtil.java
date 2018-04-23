@@ -5,8 +5,11 @@ import android.support.annotation.Nullable;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <pre>
@@ -401,6 +404,36 @@ public class JPStringUtil {
             sb.append(py);
         }
         return sb.toString();
+    }
+
+    /**
+     * 以utf-8格式编码
+     *
+     * @param str
+     * @return
+     */
+    public static String utf8Encode(String str) {
+        if (!JPStringUtil.isNullString(str) && str.getBytes().length != str.length()) {
+            try {
+                return URLEncoder.encode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("UnsupportedEncodingException occurred. ", e);
+            }
+        }
+        return str;
+    }
+
+    /**
+     * 是否是正确的邮箱地址
+     *
+     * @param strEmail
+     * @return
+     */
+    public static boolean isEmail(String strEmail) {
+        String checkemail = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+        Pattern pattern = Pattern.compile(checkemail);
+        Matcher matcher = pattern.matcher(strEmail);
+        return matcher.matches();
     }
 
     private static int[] pyValue = new int[]{

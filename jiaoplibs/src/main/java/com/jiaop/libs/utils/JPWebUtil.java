@@ -33,4 +33,15 @@ public class JPWebUtil {
         return Html.fromHtml(html);
     }
 
+    /**
+     * 处理HTML特殊字符
+     *
+     * @param source
+     * @return
+     */
+    public static String htmlEscapeCharsToString(String source) {
+        return JPStringUtil.isNullString(source) ? source : source.replaceAll("&lt;", "<").replaceAll("&gt;", ">")
+                .replaceAll("&amp;", "&").replaceAll("&quot;", "\"");
+    }
+
 }
