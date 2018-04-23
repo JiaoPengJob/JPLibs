@@ -36,7 +36,7 @@ public abstract class JPBaseActivity extends AppCompatActivity implements JPNetw
         getSupportActionBar().hide();
         //加载ButterKnife--View注解
         ButterKnife.bind(this);
-        // 注册Broadcast Receiver
+        //注册Broadcast Receiver
         netBroadcastReceiver = new JPNetworkChangeBroadcast(JPBaseActivity.this);
         IntentFilter filter = new IntentFilter();
         filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);

@@ -40,7 +40,7 @@ public abstract class JPBaseFragment extends Fragment {
     }
 
     private void isCanLoadData() {
-        //所以条件是view初始化完成并且对用户可见
+        //条件是view初始化完成并且对用户可见
         if (isInitView && isVisible) {
             //防止重复加载数据
             isInitView = false;

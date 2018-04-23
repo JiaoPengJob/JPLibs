@@ -38,7 +38,6 @@ public class JPDimenUtil {
         File dir = new File(dirStr);
         if (!dir.exists()) {
             dir.mkdir();
-
         }
         System.out.println(dir.getAbsoluteFile());
     }

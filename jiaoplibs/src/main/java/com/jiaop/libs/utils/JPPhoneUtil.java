@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -163,6 +164,25 @@ public class JPPhoneUtil {
         Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
         intent.putExtra("sms_body", TextUtils.isEmpty(content) ? "" : content);
         context.startActivity(intent);
+    }
+
+    /**
+     * 判断当前手机是否有ROOT权限
+     *
+     * @return
+     */
+    public static boolean isRoot() {
+        boolean bool = false;
+        try {
+            if ((!new File("/system/bin/su").exists()) && (!new File("/system/xbin/su").exists())) {
+                bool = false;
+            } else {
+                bool = true;
+            }
+        } catch (Exception e) {
+
+        }
+        return bool;
     }
 
 }

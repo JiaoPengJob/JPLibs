@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AndPermissionActivity" />
-        <activity android:name=".mvp.MvpActivity"></activity>
+        <activity android:name=".mvp.MvpActivity" />
+        <activity android:name=".SecActivity"></activity>
     </application>
 
 </manifest>

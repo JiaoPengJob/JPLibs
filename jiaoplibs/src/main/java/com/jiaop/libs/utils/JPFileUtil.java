@@ -2,6 +2,7 @@ package com.jiaop.libs.utils;
 
 import android.annotation.SuppressLint;
 
+import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -20,7 +21,7 @@ public class JPFileUtil {
      * @return
      */
     public static File getFileByPath(final String filePath) {
-        return isSpace(filePath) ? null : new File(filePath);
+        return JPStringUtil.isNullString(filePath) ? null : new File(filePath);
     }
 
     /**
@@ -64,7 +65,7 @@ public class JPFileUtil {
     public static boolean rename(final File file, final String newName) {
         if (file == null) return false;
         if (!file.exists()) return false;
-        if (isSpace(newName)) return false;
+        if (JPStringUtil.isNullString(newName)) return false;
         if (newName.equals(file.getName())) return true;
         File newFile = new File(file.getParent() + File.separator + newName);
         return !newFile.exists()
@@ -313,19 +314,21 @@ public class JPFileUtil {
     }
 
     /**
-     * 判断字符串是否为空
+     * 关闭IO
      *
-     * @param s
-     * @return
+     * @param closeables closeable
      */
-    private static boolean isSpace(final String s) {
-        if (s == null) return true;
-        for (int i = 0, len = s.length(); i < len; ++i) {
-            if (!Character.isWhitespace(s.charAt(i))) {
-                return false;
+    public static void closeIO(Closeable... closeables) {
+        if (closeables == null) return;
+        try {
+            for (Closeable closeable : closeables) {
+                if (closeable != null) {
+                    closeable.close();
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return true;
     }
 
 }

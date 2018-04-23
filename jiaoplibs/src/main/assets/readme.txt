@@ -75,3 +75,12 @@ https://github.com/Kelin-Hong/ScrollablePanel
 
 20：实现RecyclerView分组顶部悬浮效果
 https://github.com/Gavin-ZYX/StickyDecoration
+
+21:事件传递EventBus
+我的理解是用来替代Handler和onActivityResult
+需要接收数据的地方才注册（谁接收谁注册）
+如果页面全部都存在，发送和接收可以使用普通post
+如果接收的页面未创建，可以使用粘性postSticky发送，并且在接收时标注@Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+也就是说，发送信息之后，无论是在哪个页面注册，都可以收到信息，注意的地方就是是否开启粘性事件
+https://github.com/greenrobot/EventBus
+http://greenrobot.org/eventbus/

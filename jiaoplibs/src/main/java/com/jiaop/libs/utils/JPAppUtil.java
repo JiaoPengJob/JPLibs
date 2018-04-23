@@ -1,14 +1,21 @@
 package com.jiaop.libs.utils;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.text.TextUtils;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by jiaop
@@ -100,6 +107,126 @@ public class JPAppUtil {
             }
         }
         return isInBackground;
+    }
+
+    /**
+     * 获取App名称
+     *
+     * @param context 上下文
+     * @return App名称
+     */
+    public static String getAppName(Context context) {
+        return getAppName(context, context.getPackageName());
+    }
+
+    /**
+     * 获取App名称
+     *
+     * @param context     上下文
+     * @param packageName 包名
+     * @return App名称
+     */
+    public static String getAppName(Context context, String packageName) {
+        if (TextUtils.isEmpty(packageName)) return null;
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(packageName, 0);
+            return pi == null ? null : pi.applicationInfo.loadLabel(pm).toString();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 获取App图标
+     *
+     * @param context 上下文
+     * @return App图标
+     */
+    public static Drawable getAppIcon(Context context) {
+        return getAppIcon(context, context.getPackageName());
+    }
+
+    /**
+     * 获取App图标
+     *
+     * @param context     上下文
+     * @param packageName 包名
+     * @return App图标
+     */
+    public static Drawable getAppIcon(Context context, String packageName) {
+        if (TextUtils.isEmpty(packageName)) return null;
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(packageName, 0);
+            return pi == null ? null : pi.applicationInfo.loadIcon(pm);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 获取App签名
+     *
+     * @param context 上下文
+     * @return App签名
+     */
+    public static Signature[] getAppSignature(Context context) {
+        return getAppSignature(context, context.getPackageName());
+    }
+
+    /**
+     * 获取App签名
+     *
+     * @param context     上下文
+     * @param packageName 包名
+     * @return App签名
+     */
+    @SuppressLint("PackageManagerGetSignatures")
+    public static Signature[] getAppSignature(Context context, String packageName) {
+        if (TextUtils.isEmpty(packageName)) return null;
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
+            return pi == null ? null : pi.signatures;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 获取应用SHA1值
+     *
+     * @param context 文本对象
+     * @return
+     */
+    public static String getSHA1(Context context) {
+        try {
+            PackageInfo info = context.getPackageManager().getPackageInfo(
+                    context.getPackageName(), PackageManager.GET_SIGNATURES);
+            byte[] cert = info.signatures[0].toByteArray();
+            MessageDigest md = MessageDigest.getInstance("SHA1");
+            byte[] publicKey = md.digest(cert);
+            StringBuffer hexString = new StringBuffer();
+            for (int i = 0; i < publicKey.length; i++) {
+                String appendString = Integer.toHexString(0xFF & publicKey[i])
+                        .toUpperCase(Locale.US);
+                if (appendString.length() == 1)
+                    hexString.append("0");
+                hexString.append(appendString);
+                hexString.append(":");
+            }
+            String result = hexString.toString();
+            return result.substring(0, result.length() - 1);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

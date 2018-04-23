@@ -31,4 +31,16 @@
         android:layout_height="wrap_content"
         android:text="Update" />
 
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event send" />
+
+    <TextView
+        android:id="@+id/tvEventMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" />
+
 </LinearLayout>

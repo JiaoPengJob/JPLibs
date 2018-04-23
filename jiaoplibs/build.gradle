@@ -10,7 +10,6 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -59,10 +58,11 @@ dependencies {
     api files('libs/alipaySdk-20180316.jar')
     api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     api 'com.jpeng:JPTabBar:1.4.0'
-    api 'com.android.support:multidex:1.0.2'
+    api 'com.android.support:multidex:1.0.3'
     api('top.zibin:Luban:1.1.3') {
         exclude group: "com.android.support"
     }
+    api 'org.greenrobot:eventbus:3.1.1'
 }
 
 configurations.all {
