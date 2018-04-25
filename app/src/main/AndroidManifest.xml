@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".AndPermissionActivity" />
         <activity android:name=".mvp.MvpActivity" />
-        <activity android:name=".SecActivity"></activity>
+        <activity android:name=".SecActivity" />
+        <activity android:name=".MfActivity"></activity>
     </application>
 
 </manifest>

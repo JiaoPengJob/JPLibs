@@ -1,14 +1,11 @@
 package com.libs.jiaop;
 
 import android.content.Intent;
-import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.jiaop.libs.base.JPBaseActivity;
-import com.jiaop.libs.utils.JPAppUtil;
 import com.jiaop.libs.utils.JPSharedPreUtil;
-import com.orhanobut.logger.Logger;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -32,8 +29,10 @@ public class MainActivity extends JPBaseActivity {
     void logShow() {
 //        Logger.wtf("Show Root == " + JPPhoneUtil.isRoot());
 //        JPToastUtil.error(this, "Info");
-        String sha1 = JPAppUtil.getSHA1(this);
-        Logger.wtf("SHA1 == " + sha1);//SHA! == B9:DA:98:1E:B5:8E:FC:CC:3E:EB:FF:B4:64:36:91:4C:66:7F:F8:59
+//        String sha1 = JPAppUtil.getSHA1(this);
+//        Logger.wtf("SHA1 == " + sha1);//SHA! == B9:DA:98:1E:B5:8E:FC:CC:3E:EB:FF:B4:64:36:91:4C:66:7F:F8:59
+        Intent intent = new Intent(this, MfActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.btP)
