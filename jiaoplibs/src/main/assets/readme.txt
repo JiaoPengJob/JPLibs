@@ -88,3 +88,18 @@ http://greenrobot.org/eventbus/
 22:刷新和加载SmartRefreshLayout
 scwang90/SmartRefreshLayout
 https://github.com/scwang90/SmartRefreshLayout?utm_source=gold_browser_extension
+
+23:标签控件FlycoLabelView
+H07000223/FlycoLabelView
+https://github.com/H07000223/FlycoLabelView/blob/master/README_CN.md
+
+24：跑马灯MarqueeView
+385841539/MarqueeView
+https://github.com/385841539/MarqueeView
+
+25：收集总结 Android 项目中值得推荐的优秀开源项目
+https://github.com/SenhLinsh/Android-Hot-Libraries#android-hot-libraries
+
+26：二维码XCodeScanner
+Simon-Leeeeeeeee/XCodeScanner
+https://github.com/Simon-Leeeeeeeee/XCodeScanner

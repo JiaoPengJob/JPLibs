@@ -31,14 +31,16 @@ public class MainActivity extends JPBaseActivity {
 //        JPToastUtil.error(this, "Info");
 //        String sha1 = JPAppUtil.getSHA1(this);
 //        Logger.wtf("SHA1 == " + sha1);//SHA! == B9:DA:98:1E:B5:8E:FC:CC:3E:EB:FF:B4:64:36:91:4C:66:7F:F8:59
-        Intent intent = new Intent(this, MfActivity.class);
+        Intent intent = new Intent(this, KBActivity.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.btP)
     void btP() {
-        User u = new User("小明", "男");
-        JPSharedPreUtil.getInstance().putValue("user", u);
+//        User u = new User("小明", "男");
+//        JPSharedPreUtil.getInstance().putValue("user", u);
+        Intent intent = new Intent(this, KeyBoardActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.btR)
@@ -109,7 +111,7 @@ public class MainActivity extends JPBaseActivity {
 
     @Override
     protected int statusBarColor() {
-        return R.color.colorPrimary;
+        return R.color.red;
     }
 
     @Override

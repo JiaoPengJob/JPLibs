@@ -1,8 +1,15 @@
 package com.jiaop.libs.utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.text.InputType;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * Created by JiaoP

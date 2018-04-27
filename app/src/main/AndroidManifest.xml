@@ -20,7 +20,13 @@
         <activity android:name=".AndPermissionActivity" />
         <activity android:name=".mvp.MvpActivity" />
         <activity android:name=".SecActivity" />
-        <activity android:name=".MfActivity"></activity>
+        <activity android:name=".MfActivity" />
+        <activity android:name=".SystemBarTintActivity" />
+        <activity android:name=".KeyBoardActivity" />
+        <activity
+            android:name=".KBActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
     </application>
 
 </manifest>
