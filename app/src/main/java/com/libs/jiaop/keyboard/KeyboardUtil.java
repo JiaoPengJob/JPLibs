@@ -5,6 +5,8 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -215,6 +217,12 @@ public class KeyboardUtil {
      * 显示TextView的键盘
      */
     public void showTextKeyboard() {
+        TranslateAnimation animation = new TranslateAnimation(
+                Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f,
+                Animation.RELATIVE_TO_PARENT, 1.0f, Animation.RELATIVE_TO_PARENT, 0.0f
+        );
+        animation.setDuration(500);
+        mKeyboardView.startAnimation(animation);
         mKeyboardView.setVisibility(View.VISIBLE);
     }
 
@@ -224,6 +232,12 @@ public class KeyboardUtil {
      * @param view
      */
     public void showEditKeyboard(EditText view) {
+        TranslateAnimation animation = new TranslateAnimation(
+                Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f,
+                Animation.RELATIVE_TO_PARENT, 1.0f, Animation.RELATIVE_TO_PARENT, 0.0f
+        );
+        animation.setDuration(500);
+        mKeyboardView.startAnimation(animation);
         JPKeyboardUtil.hideKeyboard(view);
         mKeyboardView.setVisibility(View.VISIBLE);
     }
@@ -232,6 +246,11 @@ public class KeyboardUtil {
      * 隐藏键盘
      */
     public void hideKeyboard() {
+        TranslateAnimation animation = new TranslateAnimation(
+                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f,
+                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 1.0f);
+        animation.setDuration(500);
+        mKeyboardView.startAnimation(animation);
         mKeyboardView.setVisibility(View.GONE);
     }
 
