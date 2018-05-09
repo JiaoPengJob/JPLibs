@@ -36,4 +36,6 @@ dependencies {
     api 'cn.simonlee.xcodescanner:zbar:1.1.3'
 
     api 'com.parkingwang:keyboard:0.4.0'
+
+    api 'cn.yipianfengye.android:zxing-library:2.2'
 }

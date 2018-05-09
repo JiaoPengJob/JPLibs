@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:my="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DrawerActivity">
+
+    <com.libs.jiaop.MultiSlidingDrawer
+        android:id="@+id/sliView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        my:allowSingleTap="false"
+        my:animateOnClick="false"
+        my:content="@+id/content"
+        my:direction="topToBottom"
+        my:handle="@+id/handler">
+
+        <TextView
+            android:id="@+id/handler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="点击" />
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/burlywood"
+            android:orientation="horizontal"></LinearLayout>
+
+    </com.libs.jiaop.MultiSlidingDrawer>
+
+</LinearLayout>

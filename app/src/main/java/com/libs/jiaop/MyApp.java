@@ -6,6 +6,7 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
+import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 public class MyApp extends JPApplication {
 
@@ -29,5 +30,6 @@ public class MyApp extends JPApplication {
 
         JPSharedPreUtil.init(this, "test_sp_data");
 
+        ZXingLibrary.initDisplayOpinion(this);
     }
 }

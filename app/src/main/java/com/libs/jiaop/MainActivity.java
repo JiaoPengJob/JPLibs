@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.jiaop.libs.base.JPBaseActivity;
 import com.jiaop.libs.utils.JPSharedPreUtil;
+import com.libs.jiaop.zxing.QRActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -31,7 +32,7 @@ public class MainActivity extends JPBaseActivity {
 //        JPToastUtil.error(this, "Info");
 //        String sha1 = JPAppUtil.getSHA1(this);
 //        Logger.wtf("SHA1 == " + sha1);//SHA! == B9:DA:98:1E:B5:8E:FC:CC:3E:EB:FF:B4:64:36:91:4C:66:7F:F8:59
-        Intent intent = new Intent(this, KBActivity.class);
+        Intent intent = new Intent(this, DrawerActivity.class);
         startActivity(intent);
     }
 
